@@ -208,7 +208,7 @@ h1, h2, h3, h4,
 .hero__velo {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg,
+    background: linear-gradient(180deg,
                 rgba(23, 19, 15, 0.94) 0%,
                 rgba(23, 19, 15, 0.74) 55%,
                 rgba(23, 19, 15, 0.40) 100%);
@@ -238,6 +238,8 @@ h1, h2, h3, h4,
 .hero__texto {
     color: rgba(246, 241, 231, 0.82);
     max-width: 35rem;
+    margin-left:auto;
+    margin-right:auto;
     margin-bottom: 1.8rem;
 }
 
