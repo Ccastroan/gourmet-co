@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gourmet &amp; Co. reúne a pequeños productores de café en grano, chocolates artesanales, quesos madurados y vinos de autor. Pide productos gourmet a domicilio en todo Chile.">
+    <meta name="author" content="Cristián">
+    <title>Gourmet &amp; Co. | Delicias artesanales y café de especialidad</title>
+
+    <!-- Bootstrap 5.3 por CDN (referencia absoluta) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Hoja de estilos propia (referencia relativa).
+         Va DESPUES de Bootstrap: por la cascada, en caso de conflicto
+         gana la ultima hoja de estilos referenciada. -->
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ==================== ENCABEZADO ==================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-gourmet">
+            <div class="container">
+
+                <a class="navbar-brand marca" href="index.html">
+                    Gourmet <span class="marca__amp">&amp;</span> Co.
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="menuCategorias"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCategorias">
+                                <li><a class="dropdown-item" href="productos.html#cafe">Café &amp; Té</a></li>
+                                <li><a class="dropdown-item" href="productos.html#chocolates">Chocolates &amp; Dulces</a></li>
+                                <li><a class="dropdown-item" href="productos.html#quesos">Quesos &amp; Charcutería</a></li>
+                                <li><a class="dropdown-item" href="productos.html#vinos">Vinos &amp; Licores</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-dorado btn-sm" href="contacto.html">Contacto</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==================== BIENVENIDA / HERO ==================== -->
+        <section class="hero" id="inicio">
+            <div class="hero__velo"></div>
+            <div class="container hero__contenido">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="hero__kicker">Selección artesanal chilena</p>
+                        <h1 class="hero__titulo">El sabor de lo hecho a mano,<br>en la puerta de tu casa</h1>
+                        <p class="hero__texto">
+                            Reunimos a pequeños productores de café de especialidad, chocolates
+                            artesanales, quesos madurados y vinos de autor. Cada producto se
+                            selecciona uno a uno, con nombre y origen conocido.
+                        </p>
+                        <a href="productos.html" class="btn btn-dorado btn-lg me-2">Ver productos</a>
+                        <a href="#canastas" class="btn btn-contorno btn-lg">Canastas de regalo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SELLOS DE CALIDAD ==================== -->
+        <section class="seccion-sellos">
+            <div class="container">
+                <div class="row text-center g-4">
+
+                    <div class="col-6 col-lg-3">
+                        <div class="sello">
+                            <span class="sello__icono">&#9733;</span>
+                            <h3 class="sello__titulo">Producción artesanal</h3>
+                            <p class="sello__texto">Lotes pequeños, sin producción industrial.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="sello">
+                            <span class="sello__icono">&#9749;</span>
+                            <h3 class="sello__titulo">Origen trazable</h3>
+                            <p class="sello__texto">Conoces al productor detrás de cada pieza.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="sello">
+                            <span class="sello__icono">&#10022;</span>
+                            <h3 class="sello__titulo">Regalo corporativo</h3>
+                            <p class="sello__texto">Canastas personalizadas con tu marca.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="sello">
+                            <span class="sello__icono">&#9992;</span>
+                            <h3 class="sello__titulo">Despacho refrigerado</h3>
+                            <p class="sello__texto">Cadena de frío en todo el país.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== VITRINA DE CANASTAS ==================== -->
+        <section class="seccion" id="canastas">
+            <div class="container">
+
+                <div class="text-center mb-5">
+                    <p class="seccion__kicker">Promociones del mes</p>
+                    <h2 class="seccion__titulo">Vitrina de canastas de regalo</h2>
+                    <p class="seccion__bajada">
+                        Selecciones armadas por nuestro equipo para ocasiones especiales
+                        y regalos corporativos.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+
+                    <article class="col-md-4">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/canasta-premium.jpg" class="card-img-top"
+                                 alt="Canasta Premium con vino, quesos y chocolates artesanales">
+                            <div class="card-body">
+                                <span class="etiqueta etiqueta--dorada">Más vendida</span>
+                                <h3 class="card-title">Canasta Premium</h3>
+                                <p class="card-text">
+                                    Vino de autor, dos quesos madurados, chocolate 70% cacao
+                                    y café de especialidad en grano.
+                                </p>
+                                <p class="precio">$49.990</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="contacto.html" class="btn btn-dorado w-100">Pedir canasta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-md-4">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/canasta-corporativa.jpg" class="card-img-top"
+                                 alt="Canasta corporativa con caja de madera personalizada">
+                            <div class="card-body">
+                                <span class="etiqueta">Empresas</span>
+                                <h3 class="card-title">Canasta Corporativa</h3>
+                                <p class="card-text">
+                                    Caja de madera grabada con el logo de tu empresa.
+                                    Pedido mínimo de 10 unidades.
+                                </p>
+                                <p class="precio">$38.500</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="contacto.html" class="btn btn-dorado w-100">Cotizar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-md-4">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/canasta-degustacion.jpg" class="card-img-top"
+                                 alt="Set de degustación con muestras pequeñas de productos gourmet">
+                            <div class="card-body">
+                                <span class="etiqueta etiqueta--free">FREE</span>
+                                <h3 class="card-title">Set de Degustación</h3>
+                                <p class="card-text">
+                                    Muestras de nuestros cuatro rubros. Se incluye sin costo
+                                    en compras sobre $60.000.
+                                </p>
+                                <p class="precio precio--free">Degustación gratis</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="productos.html" class="btn btn-contorno w-100">Ver condiciones</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== PRODUCTOS DESTACADOS ==================== -->
+        <section class="seccion seccion--clara" id="destacados">
+            <div class="container">
+
+                <div class="text-center mb-5">
+                    <p class="seccion__kicker">Lo más pedido</p>
+                    <h2 class="seccion__titulo">Productos destacados</h2>
+                </div>
+
+                <div class="row g-4">
+
+                    <article class="col-6 col-lg-3">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/prod-cafe.jpg" class="card-img-top"
+                                 alt="Bolsa de café de especialidad en grano de origen Huila">
+                            <div class="card-body">
+                                <p class="card-categoria">Café &amp; Té</p>
+                                <h3 class="card-title">Café Huila 250g</h3>
+                                <p class="card-text">Notas a panela y frutos rojos. Tueste medio.</p>
+                                <p class="precio">$9.990</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="productos.html#cafe" class="btn btn-dorado btn-sm w-100">Ver más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-6 col-lg-3">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/prod-chocolate.jpg" class="card-img-top"
+                                 alt="Barra de chocolate artesanal de 70% cacao">
+                            <div class="card-body">
+                                <p class="card-categoria">Chocolates &amp; Dulces</p>
+                                <h3 class="card-title">Chocolate 70% cacao</h3>
+                                <p class="card-text">Cacao de origen único, endulzado con panela.</p>
+                                <p class="precio">$5.490</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="productos.html#chocolates" class="btn btn-dorado btn-sm w-100">Ver más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-6 col-lg-3">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/prod-queso.jpg" class="card-img-top"
+                                 alt="Queso de cabra madurado servido en tabla de madera">
+                            <div class="card-body">
+                                <p class="card-categoria">Quesos &amp; Charcutería</p>
+                                <h3 class="card-title">Queso de cabra 6 meses</h3>
+                                <p class="card-text">Maduración en cava, textura firme y salina.</p>
+                                <p class="precio">$14.750</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="productos.html#quesos" class="btn btn-dorado btn-sm w-100">Ver más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-6 col-lg-3">
+                        <div class="card card-gourmet h-100">
+                            <img src="img/prod-vino.jpg" class="card-img-top"
+                                 alt="Botella de vino carménère de autor del Valle de Colchagua">
+                            <div class="card-body">
+                                <p class="card-categoria">Vinos &amp; Licores</p>
+                                <h3 class="card-title">Carménère de autor</h3>
+                                <p class="card-text">Valle de Colchagua, cosecha limitada 2023.</p>
+                                <p class="precio">$22.900</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 pb-4">
+                                <a href="productos.html#vinos" class="btn btn-dorado btn-sm w-100">Ver más</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="productos.html" class="btn btn-contorno btn-lg">Ver catálogo completo</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== VIDEO EMBEBIDO ==================== -->
+        <section class="seccion seccion--oscura">
+            <div class="container">
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-5">
+                        <p class="seccion__kicker">Nuestro oficio</p>
+                        <h2 class="seccion__titulo text-white">Detrás de cada producto hay un productor</h2>
+                        <p class="text-white-50">
+                            Visitamos personalmente cada taller, cava y tostaduría antes de
+                            incorporar un producto al catálogo. Así garantizamos la calidad
+                            artesanal que nos distingue.
+                        </p>
+                        <a href="blog.html" class="btn btn-dorado">Lee nuestro blog</a>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div class="ratio ratio-16x9 marco-video">
+                            <iframe src="https://www.youtube.com/embed/OeqNbCCpvcg"
+                                    title="Proceso artesanal de tostado de café de especialidad"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+                                    allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== PIE DE PAGINA ==================== -->
+    <footer class="pie">
+        <div class="container">
+            <div class="row g-4 py-5">
+
+                <div class="col-lg-4">
+                    <p class="marca marca--pie">Gourmet <span class="marca__amp">&amp;</span> Co.</p>
+                    <p class="pie__texto">
+                        Delicias artesanales y café de especialidad. Reunimos a pequeños
+                        productores chilenos y llevamos su trabajo a tu mesa.
+                    </p>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h4 class="pie__titulo">Categorías</h4>
+                    <ul class="pie__lista">
+                        <li><a href="productos.html#cafe">Café &amp; Té</a></li>
+                        <li><a href="productos.html#chocolates">Chocolates &amp; Dulces</a></li>
+                        <li><a href="productos.html#quesos">Quesos &amp; Charcutería</a></li>
+                        <li><a href="productos.html#vinos">Vinos &amp; Licores</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h4 class="pie__titulo">Sitio</h4>
+                    <ul class="pie__lista">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="pie__titulo">Contacto</h4>
+                    <address class="pie__texto">
+                        Av. Italia 1542, Providencia, Santiago<br>
+                        Lunes a sábado, 10:00 a 20:00 h<br>
+                        <a href="tel:+56223456789">+56 2 2345 6789</a><br>
+                        <a href="mailto:contacto@gourmetyco.cl">contacto@gourmetyco.cl</a>
+                    </address>
+                </div>
+
+            </div>
+
+            <div class="pie__base">
+                <p class="mb-0">
+                    &copy; 2026 Gourmet &amp; Co. — Proyecto académico DSY1104, Duoc UC.
+                    Bebe con moderación. Venta de alcohol prohibida a menores de 18 años.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS: necesario para el menu colapsable y el desplegable -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
