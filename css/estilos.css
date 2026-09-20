@@ -1,0 +1,741 @@
+/* ============================================================
+   GOURMET & CO. - HOJA DE ESTILOS PERSONALIZADA
+   Proyecto DSY1104 Desarrollo Fullstack II - Duoc UC
+   Autor: Cristian
+
+   Esta hoja se carga DESPUES de Bootstrap. Segun el orden de
+   cascada de CSS, ante reglas en conflicto gana la ultima hoja
+   referenciada, por lo que aqui se personaliza el framework
+   sin modificar sus archivos originales.
+
+   TABLA DE CONTENIDO
+   1.  Variables de marca
+   2.  Reset y base
+   3.  Utilidades y secciones
+   4.  Marca y navegacion
+   5.  Botones personalizados
+   6.  Hero / bienvenida
+   7.  Sellos de calidad
+   8.  Tarjetas de producto
+   9.  Catalogo y filtros
+   10. Blog
+   11. Formulario y validaciones
+   12. Video
+   13. Pie de pagina
+   14. Responsive (Mobile First)
+   ============================================================ */
+
+
+/* ===== 1. VARIABLES DE MARCA ===== */
+:root {
+    --carbon: #17130F;
+    --carbon-suave: #241D18;
+    --dorado: #C9A227;
+    --dorado-claro: #E3C463;
+    --vino: #6B2737;
+    --crema: #F6F1E7;
+    --crema-oscura: #EAE1D2;
+    --texto: #2B231C;
+    --texto-suave: #6E6055;
+    --error: #B3261E;
+    --exito: #2E6B3E;
+
+    --serif: Georgia, 'Times New Roman', serif;
+    --sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+
+/* ===== 2. RESET Y BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--sans);
+    color: var(--texto);
+    background-color: #FFFFFF;
+    line-height: 1.6;
+    padding-top: 4.5rem; /* compensa la navbar fija */
+}
+
+/* Imagenes adaptables: nunca superan el ancho de su contenedor */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4,
+.marca,
+.seccion__titulo {
+    font-family: var(--serif);
+    letter-spacing: 0.3px;
+}
+
+
+/* ===== 3. UTILIDADES Y SECCIONES ===== */
+.seccion {
+    padding: 3.5rem 0;
+}
+
+.seccion--clara {
+    background-color: var(--crema);
+}
+
+.seccion--oscura {
+    background-color: var(--carbon);
+}
+
+.seccion__kicker {
+    color: var(--dorado);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+}
+
+.seccion__titulo {
+    font-size: 1.8rem;
+    color: var(--carbon);
+    margin-bottom: 0.75rem;
+}
+
+.seccion__bajada {
+    color: var(--texto-suave);
+    max-width: 36rem;
+    margin: 0 auto;
+}
+
+
+/* ===== 4. MARCA Y NAVEGACION ===== */
+.nav-gourmet {
+    background-color: rgba(23, 19, 15, 0.96);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+.marca {
+    font-size: 1.4rem;
+    color: var(--crema) !important;
+    letter-spacing: 1px;
+}
+
+.marca__amp {
+    color: var(--dorado);
+    font-style: italic;
+}
+
+.nav-gourmet .nav-link {
+    color: rgba(246, 241, 231, 0.75);
+    font-size: 0.92rem;
+    letter-spacing: 0.4px;
+    transition: color 0.25s ease;
+}
+
+.nav-gourmet .nav-link:hover,
+.nav-gourmet .nav-link.active {
+    color: var(--dorado-claro);
+}
+
+.dropdown-menu {
+    background-color: var(--carbon-suave);
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    border-radius: 2px;
+}
+
+.dropdown-item {
+    color: rgba(246, 241, 231, 0.8);
+    font-size: 0.92rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    background-color: var(--dorado);
+    color: var(--carbon);
+}
+
+
+/* ===== 5. BOTONES PERSONALIZADOS ===== */
+.btn-dorado {
+    background-color: var(--dorado);
+    color: var(--carbon);
+    border: 1px solid var(--dorado);
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.btn-dorado:hover,
+.btn-dorado:focus {
+    background-color: var(--dorado-claro);
+    border-color: var(--dorado-claro);
+    color: var(--carbon);
+}
+
+.btn-contorno {
+    background-color: transparent;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+}
+
+.btn-contorno:hover,
+.btn-contorno:focus {
+    background-color: var(--dorado);
+    color: var(--carbon);
+}
+
+
+/* ===== 6. HERO / BIENVENIDA ===== */
+.hero {
+    position: relative;
+    min-height: 26rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--carbon);
+    background-image: url('../img/hero-cafe.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__velo {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+                rgba(23, 19, 15, 0.94) 0%,
+                rgba(23, 19, 15, 0.74) 55%,
+                rgba(23, 19, 15, 0.40) 100%);
+}
+
+.hero__contenido {
+    position: relative;
+    z-index: 2;
+    padding: 3.5rem 0;
+}
+
+.hero__kicker {
+    color: var(--dorado);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.hero__titulo {
+    color: var(--crema);
+    font-size: 1.9rem;
+    line-height: 1.25;
+    margin-bottom: 1.2rem;
+}
+
+.hero__texto {
+    color: rgba(246, 241, 231, 0.82);
+    max-width: 35rem;
+    margin-bottom: 1.8rem;
+}
+
+/* Encabezado corto para las paginas interiores */
+.cabecera-pagina {
+    background-color: var(--carbon);
+    color: var(--crema);
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+}
+
+.cabecera-pagina h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cabecera-pagina p {
+    color: rgba(246, 241, 231, 0.7);
+    max-width: 38rem;
+    margin: 0 auto;
+}
+
+
+/* ===== 7. SELLOS DE CALIDAD ===== */
+.seccion-sellos {
+    background-color: var(--carbon-suave);
+    padding: 2.5rem 0;
+}
+
+.sello__icono {
+    display: block;
+    font-size: 1.7rem;
+    color: var(--dorado);
+    margin-bottom: 0.5rem;
+}
+
+.sello__titulo {
+    font-size: 1rem;
+    color: var(--crema);
+    margin-bottom: 0.3rem;
+}
+
+.sello__texto {
+    font-size: 0.85rem;
+    color: rgba(246, 241, 231, 0.55);
+    margin-bottom: 0;
+}
+
+
+/* ===== 8. TARJETAS DE PRODUCTO ===== */
+.card-gourmet {
+    border: 1px solid var(--crema-oscura);
+    border-radius: 2px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-gourmet:hover {
+    transform: translateY(-0.35rem);
+    box-shadow: 0 0.85rem 2rem rgba(23, 19, 15, 0.14);
+}
+
+.card-gourmet .card-img-top {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    background-color: var(--crema-oscura);
+}
+
+.card-gourmet .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-gourmet .card-text {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+
+.card-categoria {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dorado);
+    margin-bottom: 0.35rem;
+}
+
+.etiqueta {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.25rem 0.65rem;
+    margin-bottom: 0.6rem;
+    background-color: var(--crema-oscura);
+    color: var(--texto-suave);
+}
+
+.etiqueta--dorada {
+    background-color: var(--dorado);
+    color: var(--carbon);
+}
+
+.etiqueta--free {
+    background-color: var(--vino);
+    color: var(--crema);
+}
+
+.precio {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    color: var(--carbon);
+    margin-bottom: 0;
+}
+
+/* Regla de negocio: producto con precio 0 se muestra como degustacion */
+.precio--free {
+    color: var(--vino);
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+
+/* ===== 9. CATALOGO Y FILTROS ===== */
+.barra-filtros {
+    background-color: var(--crema);
+    border-bottom: 1px solid var(--crema-oscura);
+    padding: 1rem 0;
+    position: sticky;
+    top: 4.5rem;
+    z-index: 50;
+}
+
+.filtro-btn {
+    background-color: transparent;
+    border: 1px solid var(--crema-oscura);
+    color: var(--texto-suave);
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    margin: 0.2rem;
+    transition: all 0.2s ease;
+}
+
+.filtro-btn:hover {
+    border-color: var(--dorado);
+    color: var(--carbon);
+}
+
+.filtro-btn.activo {
+    background-color: var(--carbon);
+    border-color: var(--carbon);
+    color: var(--crema);
+}
+
+.categoria-titulo {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--carbon);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--dorado);
+    display: inline-block;
+}
+
+.aviso-vacio {
+    color: var(--texto-suave);
+    font-style: italic;
+    padding: 2rem 0;
+}
+
+
+/* ===== 10. BLOG ===== */
+.articulo {
+    background-color: #FFFFFF;
+    border: 1px solid var(--crema-oscura);
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.articulo__meta {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dorado);
+    margin-bottom: 0.6rem;
+}
+
+.articulo__titulo {
+    font-size: 1.6rem;
+    color: var(--carbon);
+    margin-bottom: 1rem;
+}
+
+.articulo__imagen {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    background-color: var(--crema-oscura);
+}
+
+.articulo p {
+    margin-bottom: 1rem;
+}
+
+.articulo h3 {
+    font-size: 1.15rem;
+    color: var(--carbon);
+    margin: 1.5rem 0 0.75rem;
+}
+
+.articulo ul {
+    margin: 0 0 1rem 1.25rem;
+}
+
+.articulo li {
+    margin-bottom: 0.4rem;
+}
+
+.articulo blockquote {
+    border-left: 3px solid var(--dorado);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--texto-suave);
+}
+
+
+/* ===== 11. FORMULARIO Y VALIDACIONES ===== */
+.form-gourmet {
+    background-color: #FFFFFF;
+    border: 1px solid var(--crema-oscura);
+    padding: 2rem;
+}
+
+.form-gourmet label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 0.3rem;
+}
+
+.form-gourmet .obligatorio {
+    color: var(--error);
+}
+
+.form-gourmet .form-control,
+.form-gourmet .form-select {
+    border-radius: 2px;
+    border: 1px solid var(--crema-oscura);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.92rem;
+}
+
+.form-gourmet .form-control:focus,
+.form-gourmet .form-select:focus {
+    border-color: var(--dorado);
+    box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.18);
+}
+
+/* Estados de validacion controlados por JavaScript */
+.campo-error {
+    border-color: var(--error) !important;
+    background-color: #FDF3F2;
+}
+
+.campo-ok {
+    border-color: var(--exito) !important;
+}
+
+.mensaje-error {
+    display: none;
+    color: var(--error);
+    font-size: 0.82rem;
+    margin-top: 0.3rem;
+}
+
+.mensaje-error.visible {
+    display: block;
+}
+
+.ayuda {
+    color: var(--texto-suave);
+    font-size: 0.78rem;
+    margin-top: 0.25rem;
+}
+
+.contador {
+    font-size: 0.78rem;
+    color: var(--texto-suave);
+    text-align: right;
+}
+
+.contador--limite {
+    color: var(--error);
+    font-weight: 600;
+}
+
+.resumen-errores {
+    display: none;
+    background-color: #FDF3F2;
+    border-left: 4px solid var(--error);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.resumen-errores.visible {
+    display: block;
+}
+
+.resumen-errores h2 {
+    font-size: 1rem;
+    color: var(--error);
+    margin-bottom: 0.5rem;
+}
+
+.resumen-errores ul {
+    margin: 0 0 0 1.1rem;
+    font-size: 0.87rem;
+    color: var(--texto);
+}
+
+.mensaje-exito {
+    display: none;
+    background-color: #F1F7F2;
+    border-left: 4px solid var(--exito);
+    padding: 1.25rem;
+    color: var(--exito);
+}
+
+.mensaje-exito.visible {
+    display: block;
+}
+
+.datos-contacto {
+    background-color: var(--carbon);
+    color: rgba(246, 241, 231, 0.75);
+    padding: 2rem;
+    height: 100%;
+}
+
+.datos-contacto h2 {
+    font-size: 1.2rem;
+    color: var(--crema);
+    margin-bottom: 1.25rem;
+}
+
+.datos-contacto dt {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dorado);
+    margin-top: 1rem;
+}
+
+.datos-contacto dd {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.datos-contacto a {
+    color: rgba(246, 241, 231, 0.75);
+    text-decoration: none;
+}
+
+.datos-contacto a:hover {
+    color: var(--dorado);
+}
+
+
+/* ===== 12. VIDEO ===== */
+.marco-video {
+    border: 1px solid rgba(201, 162, 39, 0.35);
+}
+
+
+/* ===== 13. PIE DE PAGINA ===== */
+.pie {
+    background-color: var(--carbon);
+    color: rgba(246, 241, 231, 0.7);
+    padding-top: 2.5rem;
+}
+
+.marca--pie {
+    font-size: 1.3rem;
+    color: var(--crema);
+    margin-bottom: 0.85rem;
+}
+
+.pie__titulo {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dorado);
+    margin-bottom: 1rem;
+}
+
+.pie__texto {
+    font-size: 0.88rem;
+    font-style: normal;
+    line-height: 1.8;
+}
+
+.pie__lista {
+    list-style: none;
+    padding: 0;
+}
+
+.pie__lista li {
+    margin-bottom: 0.55rem;
+}
+
+.pie__lista a,
+.pie__texto a {
+    color: rgba(246, 241, 231, 0.7);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s ease;
+}
+
+.pie__lista a:hover,
+.pie__texto a:hover {
+    color: var(--dorado);
+}
+
+.pie__base {
+    border-top: 1px solid rgba(246, 241, 231, 0.12);
+    padding: 1.25rem 0;
+    font-size: 0.8rem;
+    text-align: center;
+    color: rgba(246, 241, 231, 0.45);
+}
+
+
+/* ============================================================
+   14. RESPONSIVE - ENFOQUE MOBILE FIRST
+   Los estilos de arriba son la version movil. Los bloques
+   siguientes agregan mejoras a medida que la pantalla crece,
+   usando min-width en vez de max-width.
+   ============================================================ */
+
+/* Tabletas verticales y telefonos grandes (600px y mas) */
+@media only screen and (min-width: 600px) {
+    .seccion {
+        padding: 4.5rem 0;
+    }
+
+    .hero__titulo {
+        font-size: 2.3rem;
+    }
+
+    .card-gourmet .card-img-top {
+        height: 13rem;
+    }
+}
+
+/* Tabletas horizontales (768px y mas) */
+@media only screen and (min-width: 768px) {
+    .seccion__titulo {
+        font-size: 2.1rem;
+    }
+
+    .hero {
+        min-height: 30rem;
+    }
+
+    .articulo {
+        padding: 2.5rem;
+    }
+}
+
+/* Escritorio (992px y mas) */
+@media only screen and (min-width: 992px) {
+    .seccion {
+        padding: 5.5rem 0;
+    }
+
+    .hero {
+        min-height: 35rem;
+    }
+
+    .hero__titulo {
+        font-size: 3rem;
+    }
+
+    .hero__texto {
+        font-size: 1.05rem;
+    }
+
+    .card-gourmet .card-img-top {
+        height: 13.75rem;
+    }
+}
+
+/* Pantallas extra grandes (1200px y mas) */
+@media only screen and (min-width: 1200px) {
+    .hero__titulo {
+        font-size: 3.25rem;
+    }
+}
