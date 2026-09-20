@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta a Gourmet &amp; Co. para pedidos a domicilio, canastas de regalo corporativo y degustaciones en tienda.">
+    <meta name="author" content="Cristián">
+    <title>Contacto | Gourmet &amp; Co.</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- ==================== ENCABEZADO ==================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top nav-gourmet">
+            <div class="container">
+
+                <a class="navbar-brand marca" href="index.html">
+                    Gourmet <span class="marca__amp">&amp;</span> Co.
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false"
+                        aria-label="Abrir menú de navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="menuCategorias"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="menuCategorias">
+                                <li><a class="dropdown-item" href="productos.html#cafe">Café &amp; Té</a></li>
+                                <li><a class="dropdown-item" href="productos.html#chocolates">Chocolates &amp; Dulces</a></li>
+                                <li><a class="dropdown-item" href="productos.html#quesos">Quesos &amp; Charcutería</a></li>
+                                <li><a class="dropdown-item" href="productos.html#vinos">Vinos &amp; Licores</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-dorado btn-sm active" aria-current="page" href="contacto.html">Contacto</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- ==================== CABECERA ==================== -->
+        <section class="cabecera-pagina">
+            <div class="container">
+                <p class="seccion__kicker">Hablemos</p>
+                <h1>Contacto</h1>
+                <p>
+                    Pedidos a domicilio, canastas corporativas o una duda sobre un
+                    producto: escríbenos y te respondemos dentro de 24 horas hábiles.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==================== FORMULARIO ==================== -->
+        <section class="seccion seccion--clara">
+            <div class="container">
+                <div class="row g-4">
+
+                    <div class="col-lg-8">
+
+                        <!-- Resumen de errores: lo llena js/validaciones.js -->
+                        <div class="resumen-errores" id="resumenErrores" role="alert">
+                            <h2>Revisa estos puntos antes de enviar</h2>
+                            <ul id="listaErrores"></ul>
+                        </div>
+
+                        <!-- Mensaje de exito: lo llena js/validaciones.js -->
+                        <div class="mensaje-exito" id="mensajeExito" role="status"></div>
+
+                        <!--
+                            El atributo novalidate desactiva la validacion
+                            automatica del navegador para que los mensajes sean
+                            los personalizados del sitio.
+                        -->
+                        <form class="form-gourmet" id="formContacto" novalidate>
+
+                            <div class="row g-3">
+
+                                <!-- NOMBRE -->
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">
+                                        Nombre completo <span class="obligatorio">*</span>
+                                    </label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre"
+                                           autocomplete="name" placeholder="Ej: María Fernanda Soto"
+                                           aria-describedby="ayuda-nombre error-nombre">
+                                    <p class="ayuda" id="ayuda-nombre">Solo letras, entre 3 y 60 caracteres.</p>
+                                    <p class="mensaje-error" id="error-nombre"></p>
+                                </div>
+
+                                <!-- CORREO -->
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">
+                                        Correo electrónico <span class="obligatorio">*</span>
+                                    </label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                           autocomplete="email" placeholder="Ej: maria.soto@gmail.com"
+                                           aria-describedby="ayuda-email error-email">
+                                    <p class="ayuda" id="ayuda-email">Aquí te llegará nuestra respuesta.</p>
+                                    <p class="mensaje-error" id="error-email"></p>
+                                </div>
+
+                                <!-- TELEFONO -->
+                                <div class="col-md-6">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono"
+                                           autocomplete="tel" placeholder="Ej: +56 9 1234 5678"
+                                           aria-describedby="ayuda-telefono error-telefono">
+                                    <p class="ayuda" id="ayuda-telefono">Opcional. Lo usamos solo para coordinar despachos.</p>
+                                    <p class="mensaje-error" id="error-telefono"></p>
+                                </div>
+
+                                <!-- REGION -->
+                                <div class="col-md-6">
+                                    <label for="region" class="form-label">
+                                        Región de despacho <span class="obligatorio">*</span>
+                                    </label>
+                                    <select class="form-select" id="region" name="region"
+                                            aria-describedby="ayuda-region error-region">
+                                        <option value="">Selecciona tu región</option>
+                                        <option value="arica">Arica y Parinacota</option>
+                                        <option value="tarapaca">Tarapacá</option>
+                                        <option value="antofagasta">Antofagasta</option>
+                                        <option value="atacama">Atacama</option>
+                                        <option value="coquimbo">Coquimbo</option>
+                                        <option value="valparaiso">Valparaíso</option>
+                                        <option value="metropolitana">Metropolitana</option>
+                                        <option value="ohiggins">O'Higgins</option>
+                                        <option value="maule">Maule</option>
+                                        <option value="nuble">Ñuble</option>
+                                        <option value="biobio">Biobío</option>
+                                        <option value="araucania">La Araucanía</option>
+                                        <option value="rios">Los Ríos</option>
+                                        <option value="lagos">Los Lagos</option>
+                                        <option value="aysen">Aysén</option>
+                                        <option value="magallanes">Magallanes</option>
+                                    </select>
+                                    <p class="ayuda" id="ayuda-region">Nos permite calcular el costo de envío.</p>
+                                    <p class="mensaje-error" id="error-region"></p>
+                                </div>
+
+                                <!-- TIPO DE CONSULTA -->
+                                <div class="col-12">
+                                    <label for="tipo" class="form-label">
+                                        Tipo de consulta <span class="obligatorio">*</span>
+                                    </label>
+                                    <select class="form-select" id="tipo" name="tipo"
+                                            aria-describedby="error-tipo">
+                                        <option value="">Selecciona una opción</option>
+                                        <option value="pedido">Pedido a domicilio</option>
+                                        <option value="corporativo">Regalo corporativo</option>
+                                        <option value="degustacion">Degustación gratuita</option>
+                                        <option value="producto">Duda sobre un producto</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                    <p class="mensaje-error" id="error-tipo"></p>
+                                </div>
+
+                                <!-- MENSAJE -->
+                                <div class="col-12">
+                                    <label for="mensaje" class="form-label">
+                                        Mensaje <span class="obligatorio">*</span>
+                                    </label>
+                                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                                              placeholder="Cuéntanos qué necesitas, para cuándo y para cuántas personas."
+                                              aria-describedby="contadorMensaje error-mensaje"></textarea>
+                                    <p class="contador" id="contadorMensaje"></p>
+                                    <p class="mensaje-error" id="error-mensaje"></p>
+                                </div>
+
+                                <!-- TERMINOS -->
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terminos" name="terminos">
+                                        <label class="form-check-label" for="terminos">
+                                            Autorizo el uso de mis datos para responder esta consulta
+                                            <span class="obligatorio">*</span>
+                                        </label>
+                                    </div>
+                                    <p class="mensaje-error" id="error-terminos"></p>
+                                </div>
+
+                                <!-- BOTONES -->
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-dorado btn-lg">Enviar mensaje</button>
+                                    <button type="reset" class="btn btn-contorno btn-lg ms-2">Limpiar</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- DATOS DE CONTACTO -->
+                    <div class="col-lg-4">
+                        <div class="datos-contacto">
+                            <h2>Visítanos</h2>
+                            <dl>
+                                <dt>Tienda</dt>
+                                <dd>Av. Italia 1542, Providencia, Santiago</dd>
+
+                                <dt>Horario</dt>
+                                <dd>Lunes a sábado, 10:00 a 20:00 h</dd>
+
+                                <dt>Teléfono</dt>
+                                <dd><a href="tel:+56223456789">+56 2 2345 6789</a></dd>
+
+                                <dt>Correo</dt>
+                                <dd><a href="mailto:contacto@gourmetyco.cl">contacto@gourmetyco.cl</a></dd>
+
+                                <dt>Pedidos corporativos</dt>
+                                <dd><a href="mailto:empresas@gourmetyco.cl">empresas@gourmetyco.cl</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== PIE DE PAGINA ==================== -->
+    <footer class="pie">
+        <div class="container">
+            <div class="row g-4 py-5">
+
+                <div class="col-lg-4">
+                    <p class="marca marca--pie">Gourmet <span class="marca__amp">&amp;</span> Co.</p>
+                    <p class="pie__texto">
+                        Delicias artesanales y café de especialidad. Reunimos a pequeños
+                        productores chilenos y llevamos su trabajo a tu mesa.
+                    </p>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h4 class="pie__titulo">Categorías</h4>
+                    <ul class="pie__lista">
+                        <li><a href="productos.html#cafe">Café &amp; Té</a></li>
+                        <li><a href="productos.html#chocolates">Chocolates &amp; Dulces</a></li>
+                        <li><a href="productos.html#quesos">Quesos &amp; Charcutería</a></li>
+                        <li><a href="productos.html#vinos">Vinos &amp; Licores</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-lg-2">
+                    <h4 class="pie__titulo">Sitio</h4>
+                    <ul class="pie__lista">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h4 class="pie__titulo">Contacto</h4>
+                    <address class="pie__texto">
+                        Av. Italia 1542, Providencia, Santiago<br>
+                        Lunes a sábado, 10:00 a 20:00 h<br>
+                        <a href="tel:+56223456789">+56 2 2345 6789</a><br>
+                        <a href="mailto:contacto@gourmetyco.cl">contacto@gourmetyco.cl</a>
+                    </address>
+                </div>
+
+            </div>
+
+            <div class="pie__base">
+                <p class="mb-0">
+                    &copy; 2026 Gourmet &amp; Co. — Proyecto académico DSY1104, Duoc UC.
+                    Bebe con moderación. Venta de alcohol prohibida a menores de 18 años.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/validaciones.js"></script>
+</body>
+</html>
