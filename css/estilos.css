@@ -41,6 +41,7 @@
     --linea-clara: rgba(246, 227, 224, 0.14);
     --error: #B3261E;
     --exito: #2E6B3E;
+    --fondo-seccion: #2E211B
 
     --serif: Georgia, 'Times New Roman', serif;
     --sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -87,7 +88,7 @@ h1, h2, h3, h4,
 }
 
 .seccion--oscura {
-    background-color: var(--carbon);
+    background-color: #2E211B;
 }
 
 .seccion__kicker {
@@ -313,8 +314,10 @@ h1, h2, h3, h4,
 
 .card-gourmet .card-img-top {
     width: 100%;
-    height: 12rem;
-    object-fit: cover;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 10rem;
+    object-fit: contain;
     background-color: var(--crema-oscura);
 }
 
@@ -701,11 +704,6 @@ h1, h2, h3, h4,
         font-size: 2.3rem;
     }
 
-    .card-gourmet .card-img-top {
-        height: 13rem;
-    }
-}
-
 /* Tabletas horizontales (768px y mas) */
 @media only screen and (min-width: 768px) {
     .seccion__titulo {
@@ -737,10 +735,6 @@ h1, h2, h3, h4,
 
     .hero__texto {
         font-size: 1.05rem;
-    }
-
-    .card-gourmet .card-img-top {
-        height: 13.75rem;
     }
 }
 
