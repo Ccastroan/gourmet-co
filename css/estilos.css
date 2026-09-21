@@ -28,15 +28,17 @@
 
 /* ===== 1. VARIABLES DE MARCA ===== */
 :root {
-    --carbon: #17130F;
+    --carbon: oklab(75.48899999999999% -0.00186 0.14027);
     --carbon-suave: #241D18;
-    --dorado: #C9A227;
+    --dorado: hsl(40, 20%, 97%);
     --dorado-claro: #E3C463;
     --vino: #6B2737;
-    --crema: #F6F1E7;
+    --crema: #f6e3e0;
     --crema-oscura: #EAE1D2;
-    --texto: #2B231C;
+    --texto-claro: rgba(246, 227, 224, 0.84);
     --texto-suave: #6E6055;
+    --texto-tenue: rgba(246, 227, 224, 0.58);
+    --linea-clara: rgba(246, 227, 224, 0.14);
     --error: #B3261E;
     --exito: #2E6B3E;
 
@@ -45,7 +47,7 @@
 }
 
 
-/* ===== 2. RESET Y BASE ===== */
+/* ===== 2. RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -129,7 +131,7 @@ h1, h2, h3, h4,
 }
 
 .nav-gourmet .nav-link {
-    color: rgba(246, 241, 231, 0.75);
+    color: var(--texto-claro);
     font-size: 0.92rem;
     letter-spacing: 0.4px;
     transition: color 0.25s ease;
@@ -147,7 +149,7 @@ h1, h2, h3, h4,
 }
 
 .dropdown-item {
-    color: rgba(246, 241, 231, 0.8);
+    color: var(--texto-claro);
     font-size: 0.92rem;
 }
 
@@ -236,7 +238,7 @@ h1, h2, h3, h4,
 }
 
 .hero__texto {
-    color: rgba(246, 241, 231, 0.82);
+    color: var(--texto-claro);
     max-width: 35rem;
     margin-left:auto;
     margin-right:auto;
@@ -257,9 +259,16 @@ h1, h2, h3, h4,
 }
 
 .cabecera-pagina p {
-    color: rgba(246, 241, 231, 0.7);
+    color: var(--texto-claro);
     max-width: 38rem;
     margin: 0 auto;
+}
+/*ajuste utilitario de Bootstrap a colo propio. Bootstrap define .text-white con !import asi que sobreescribirlo nos obliga tambien.*/
+.seccion-oscura .text-white {
+    color: var(--crema) !important;
+}
+.seccion-oscura .text-white-50{
+    color: var(--texto-tenue) !important; 
 }
 
 
@@ -284,7 +293,7 @@ h1, h2, h3, h4,
 
 .sello__texto {
     font-size: 0.85rem;
-    color: rgba(246, 241, 231, 0.55);
+    color: var(--texto-tenue);
     margin-bottom: 0;
 }
 
@@ -577,7 +586,7 @@ h1, h2, h3, h4,
 
 .datos-contacto {
     background-color: var(--carbon);
-    color: rgba(246, 241, 231, 0.75);
+    color: var(--texto-claro);
     padding: 2rem;
     height: 100%;
 }
@@ -602,7 +611,7 @@ h1, h2, h3, h4,
 }
 
 .datos-contacto a {
-    color: rgba(246, 241, 231, 0.75);
+    color: var(--texto-claro);
     text-decoration: none;
 }
 
@@ -620,7 +629,7 @@ h1, h2, h3, h4,
 /* ===== 13. PIE DE PAGINA ===== */
 .pie {
     background-color: var(--carbon);
-    color: rgba(246, 241, 231, 0.7);
+    color: var(--texto-claro);
     padding-top: 2.5rem;
 }
 
@@ -655,7 +664,7 @@ h1, h2, h3, h4,
 
 .pie__lista a,
 .pie__texto a {
-    color: rgba(246, 241, 231, 0.7);
+    color: var(--texto-claro);
     text-decoration: none;
     font-size: 0.88rem;
     transition: color 0.2s ease;
@@ -667,11 +676,11 @@ h1, h2, h3, h4,
 }
 
 .pie__base {
-    border-top: 1px solid rgba(246, 241, 231, 0.12);
+    border-top: 1px solid var(--linea-clara);
     padding: 1.25rem 0;
     font-size: 0.8rem;
     text-align: center;
-    color: rgba(246, 241, 231, 0.45);
+    color: var(--texto-tenue);
 }
 
 
