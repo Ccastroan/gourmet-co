@@ -3,7 +3,7 @@ Thumbs.db
 desktop.ini
 .DS_Store
 
-#Editores
+# Editores
 .vscode/
 .idea/
 
@@ -11,3 +11,13 @@ desktop.ini
 *.log
 *.tmp
 ~$*
+
+# Carpetas de trabajo que no forman parte del proyecto
+Claude outputs/
+
+# Dependencias y compilados (proyecto React)
+node_modules
+dist
+dist-ssr
+coverage
+*.local
