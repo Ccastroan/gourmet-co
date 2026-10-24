@@ -1,33 +1,16 @@
-# Gourmet & Co.
-Sitio web frontend para **Gourmet & Co.**, tienda de delicias artesanales y café de especialidades. Proyecto desarrollado para la Evaluación Parcial 1 de FullStack II.
+# React + Vite
 
-## Descripción
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Plataforma que reúne a pequeños productores de café de grano, chocolates artesanales, quesos madurados y vinos de autor, premitiendo a los clientes pedir productos gourmet a domicilio.
+Currently, two official plugins are available:
 
-## Público Objetivo
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Amantes de la gastronomía para personas que buscan regalos corporativos o de ocasión.
+## React Compiler
 
-## Tecnologías
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- HTML5 con etiquetado Semántico.
-- CSS3 y Bootstrap 5.3, con hoja de estilos personalizada externa.
-- JavaScript para validaciones de formularios y reglas de negocio
-- Git y GitHub para control de versiones
+## Expanding the ESLint configuration
 
-## Estructura del proyecto
-
-    gourmet-co/
-        index.html
-        css/estilos.css
-        js/
-        img/
-
-## Regla de negocio
-
-Los productos admiten precio decimal o la opción FREE (degustación o muestras gratis), donde el precio es igual a 0 y se muestra como "Degustación gratis".
-
-## Autor
-
-Cristián - Analista Programador, Duoc UC
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
