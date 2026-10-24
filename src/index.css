@@ -1,111 +1,244 @@
+/* ============================================================
+   Gourmet & Co. - estilos propios
+   DSY1104
+
+   Esta hoja se carga DESPUES de Bootstrap (ver main.jsx), asi que
+   por la cascada gana cuando hay conflicto. La uso para la paleta
+   y para los detalles de marca; la grilla y los componentes los
+   deja Bootstrap.
+
+   Paleta: cafes, rosas y amarillos en tono pastel.
+   ============================================================ */
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --chocolate:       #4A342A;
+  --chocolate-suave: #7A5C4A;
+  --rosa:            #E8B4B0;
+  --rosa-claro:      #F7DEDA;
+  --amarillo:        #E8C87A;
+  --amarillo-claro:  #FAF0D9;
+  --crema:           #FDF8F3;
+  --texto:           #3A2C24;
+  --texto-suave:     #7A675A;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', Tahoma, Verdana, sans-serif;
 }
 
 body {
-  margin: 0;
+  font-family: var(--sans);
+  color: var(--texto);
+  background-color: var(--crema);
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+h1, h2, h3 {
+  font-family: var(--serif);
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* ===== Barra superior ===== */
+.barra {
+  background-color: var(--chocolate);
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+.marca {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--crema) !important;
+  letter-spacing: 1px;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+.marca__amp {
+  color: var(--rosa);
+  font-style: italic;
+}
+
+.barra .nav-link {
+  color: var(--rosa-claro) !important;
+}
+
+.barra .nav-link:hover {
+  color: var(--amarillo) !important;
+}
+
+/* ===== Portada ===== */
+.portada {
+  background: linear-gradient(135deg, var(--rosa-claro), var(--amarillo-claro));
+  padding: 3.5rem 0;
+  border-bottom: 3px solid var(--rosa);
+}
+
+.portada__kicker {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  color: var(--chocolate-suave);
+  margin-bottom: 0.5rem;
+}
+
+.portada__titulo {
+  font-size: 2.2rem;
+  color: var(--chocolate);
+  margin-bottom: 0.75rem;
+}
+
+.portada__texto {
+  color: var(--texto-suave);
+  max-width: 38rem;
+  margin-bottom: 0;
+}
+
+/* ===== Tarjetas de producto ===== */
+.producto {
+  border: 1px solid var(--rosa-claro);
   border-radius: 4px;
-  color: var(--text-h);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.producto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(74, 52, 42, 0.15);
+}
+
+.producto__imagen {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background-color: var(--amarillo-claro);
+}
+
+.producto__categoria {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--chocolate-suave);
+}
+
+.producto__nombre {
+  font-size: 1.05rem;
+  color: var(--chocolate);
+}
+
+.producto__descripcion {
+  font-size: 0.88rem;
+  color: var(--texto-suave);
+}
+
+.producto__precio {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--chocolate);
+  margin-bottom: 0.75rem;
+}
+
+.producto__precio--free {
+  color: #9A5B63;
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+.producto__aviso {
+  font-size: 0.82rem;
+  color: #9A5B63;
+}
+
+/* El boton primario de Bootstrap, con la paleta de la marca */
+.producto__boton.btn-primary,
+.btn-primary {
+  background-color: var(--chocolate);
+  border-color: var(--chocolate);
+  color: var(--crema);
+}
+
+.producto__boton.btn-primary:hover,
+.btn-primary:hover {
+  background-color: var(--chocolate-suave);
+  border-color: var(--chocolate-suave);
+}
+
+/* ===== Lista de productos ===== */
+.lista-productos__titulo {
+  font-size: 1.5rem;
+  color: var(--chocolate);
+  border-bottom: 2px solid var(--amarillo);
+  display: inline-block;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.lista-productos__vacio {
+  color: var(--texto-suave);
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+/* ===== Carrito ===== */
+.carrito {
+  border: 1px solid var(--rosa);
+  border-radius: 4px;
+}
+
+.carrito__titulo {
+  background-color: var(--rosa-claro);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--chocolate);
+}
+
+.carrito__vacio {
+  color: var(--texto-suave);
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.carrito__nombre {
+  font-size: 0.9rem;
+}
+
+.carrito__precio {
+  font-size: 0.9rem;
+  color: var(--chocolate-suave);
+}
+
+.carrito__aviso {
+  font-size: 0.82rem;
+  color: var(--chocolate-suave);
+}
+
+.carrito__total {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--chocolate);
+}
+
+/* Deja el carrito a la vista mientras se baja por el catalogo.
+   Solo en pantallas grandes: en el celular estorbaria. */
+@media (min-width: 992px) {
+  .carrito-fijo {
+    position: sticky;
+    top: 90px;
+  }
+}
+
+/* ===== Pie ===== */
+.pie {
+  background-color: var(--chocolate);
+  color: var(--rosa-claro);
+  padding: 2rem 0;
+  font-size: 0.88rem;
+}
+
+.pie__legal {
+  color: rgba(247, 222, 218, 0.6);
+  font-size: 0.78rem;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 575px) {
+  .portada__titulo {
+    font-size: 1.6rem;
+  }
+
+  .portada {
+    padding: 2.5rem 0;
+  }
 }
