@@ -1,9 +1,6 @@
 /* ============================================================
    PRUEBAS UNITARIAS: componente Producto
    Gourmet & Co. - DSY1104
-
-   Cubre tres de los cuatro tipos que pide la guia:
-   renderizado correcto, renderizado condicional y eventos.
    ============================================================ */
 
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
@@ -15,7 +12,7 @@ describe("Componente Producto", () => {
     cleanup();
   });
 
-  /* --- PRUEBA 1: renderizado correcto --- */
+  /* -- PRUEBA 1: renderizado correcto -- */
   it("muestra el nombre del producto", () => {
     render(
       <Producto
@@ -32,7 +29,7 @@ describe("Componente Producto", () => {
     expect(titulo.textContent).toBe("Café Huila en grano");
   });
 
-  /* --- PRUEBA 2: renderizado del boton --- */
+  /* -- PRUEBA 2: renderizado del boton -- */
   it("muestra el botón para agregar al carrito habilitado", () => {
     render(
       <Producto
@@ -50,7 +47,7 @@ describe("Componente Producto", () => {
     expect(boton.disabled).toBeFalse();
   });
 
-  /* --- PRUEBA 3: renderizado condicional (regla FREE) --- */
+  /* --- PRUEBA 3: renderizado condicional --- */
   it("muestra 'Degustación gratis' cuando el precio es 0", () => {
     render(
       <Producto
@@ -63,26 +60,20 @@ describe("Componente Producto", () => {
     const precio = screen.getByText("Degustación gratis");
     expect(precio).toBeTruthy();
 
-    // Ademas debe aparecer la etiqueta FREE
     const etiqueta = screen.getByText("FREE");
     expect(etiqueta.textContent).toBe("FREE");
   });
 
-  /* --- PRUEBA 4: evento de clic con prop de tipo funcion --- */
+  /* -- PRUEBA 4: evento de clic verificado con un spy -- */
   it("ejecuta onAgregar al presionar el botón", () => {
-    // Variable que nos dice si la funcion fue llamada y con que datos
-    let recibido = null;
-
-    const simularAgregar = (producto) => {
-      recibido = producto;
-    };
+    const espiaAgregar = jasmine.createSpy("onAgregar");
 
     render(
       <Producto
         nombre="Chocolate 70% cacao"
         imagen="/img/prod-chocolate.jpg"
         precio={5490}
-        onAgregar={simularAgregar}
+        onAgregar={espiaAgregar}
       />
     );
 
@@ -92,9 +83,39 @@ describe("Componente Producto", () => {
 
     fireEvent.click(boton);
 
-    expect(recibido).not.toBeNull();
-    expect(recibido.nombre).toBe("Chocolate 70% cacao");
-    expect(recibido.precio).toBe(5490);
+    expect(espiaAgregar).toHaveBeenCalled();
+    expect(espiaAgregar).toHaveBeenCalledTimes(1);
+    expect(espiaAgregar).toHaveBeenCalledWith({
+      nombre: "Chocolate 70% cacao",
+      precio: 5490
+    });
+  });
+
+  /* -- PRUEBA 5: producto sin stock -- */
+  it("deshabilita el botón y avisa cuando el producto no está disponible", () => {
+    const espiaAgregar = jasmine.createSpy("onAgregar");
+
+    render(
+      <Producto
+        nombre="Jamón serrano en lonjas"
+        imagen="/img/prod-jamon.jpg"
+        precio={12300}
+        disponible={false}
+        onAgregar={espiaAgregar}
+      />
+    );
+
+    const boton = screen.getByRole("button", {
+      name: "Agregar al carrito"
+    });
+
+    expect(boton.disabled).toBeTrue();
+
+    const aviso = screen.getByRole("alert");
+    expect(aviso.textContent).toBe("Producto sin stock por ahora");
+
+    fireEvent.click(boton);
+    expect(espiaAgregar).not.toHaveBeenCalled();
   });
 
 });
